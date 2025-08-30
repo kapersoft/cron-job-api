@@ -1,0 +1,74 @@
+{
+    "name": "kapersoft/cron-job-api",
+    "description": "A PHP client for the Cron-Job.org API",
+    "license": "MIT",
+    "keywords": [
+        "Kapersoft bv",
+        "cron-job.org",
+        "scheduler",
+        "cron-job-api",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "Jan Willem Kaper",
+            "email": "kapersoft@gmail.com",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://github.com/kapersoft/cron-job-api",
+    "support": {
+        "issues": "https://github.com/kapersoft/cron-job-api/issues",
+        "source": "https://github.com/kapersoft/cron-job-api"
+    },
+    "require": {
+        "php": "^8.4",
+        "guzzlehttp/guzzle": "^7.10"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.48",
+        "fakerphp/faker": "^1.24",
+        "laravel/pint": "^1.24",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpunit/phpunit": "^12.3",
+        "rector/rector": "^2.1"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Kapersoft\\CronJobApi\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kapersoft\\CronJobApi\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "scripts": {
+        "format": [
+            "composer normalize",
+            "@php ./vendor/bin/rector process",
+            "@php ./vendor/bin/pint --repair"
+        ],
+        "lint": [
+            "composer normalize --dry-run",
+            "@php ./vendor/bin/rector process --dry-run",
+            "@php ./vendor/bin/pint --test",
+            "@php ./vendor/bin/phpstan analyse",
+            "@php ./vendor/bin/phpstan analyse --error-format=github"
+        ],
+        "test": [
+            "@php ./vendor/bin/phpunit"
+        ]
+    }
+}
