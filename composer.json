@@ -33,7 +33,7 @@
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
-        "phpunit/phpunit": "^12.3",
+        "phpunit/phpunit": "^13.4",
         "rector/rector": "^2.1"
     },
     "minimum-stability": "stable",
